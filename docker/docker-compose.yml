@@ -19,7 +19,9 @@ services:
                         - advance_cache_network
 
                 volumes:
-                        - "~/repo/docker/postgresql/postgres_data:/var/lib/postgresql/data"
+#                        - "~/repo/docker/postgresql/postgres_data:/var/lib/postgresql/data"
+                        # Let's us to run sql scripts after docker database start
+                        - "./sql_scripts:/docker-entrypoint-initdb.d"
 
 networks:
         advance_cache_network:
