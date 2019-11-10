@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+        mongodb-dev:
+                image: mongo
+                ports:
+                        - "27017:27017"
+                networks:
+                        - advance_cache_network
+
+                volumes:
+                        - "~/repo/docker/mongo/mongodb_data:/data/db"
+
+        postgresql-dev:
+                image: postgres
+                ports:
+                        - "5432:5432"
+                networks:
+                        - advance_cache_network
+
+                volumes:
+                        - "~/repo/docker/postgresql/postgres_data:/var/lib/postgresql/data"
+
+networks:
+        advance_cache_network:
+                driver: bridge
